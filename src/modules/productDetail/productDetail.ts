@@ -32,10 +32,14 @@ class ProductDetail extends Component {
     this.view.description.innerText = description;
     this.view.price.innerText = formatPrice(salePriceU);
     this.view.btnBuy.onclick = this._addToCart.bind(this);
+    this.view.btnFav.onclick = this._addToFav.bind(this);
+    this.view.btnFav.style.backgroundColor = 'none';
 
     const isInCart = await cartService.isInCart(this.product);
+    const isInFav = await cartService.isInCart(this.product);
 
     if (isInCart) this._setInCart();
+    if (isInFav) this._setInCart();
 
     fetch(`/api/getProductSecretKey?id=${id}`)
       .then((res) => res.json())
@@ -60,6 +64,17 @@ class ProductDetail extends Component {
   private _setInCart() {
     this.view.btnBuy.innerText = '✓ В корзине';
     this.view.btnBuy.disabled = true;
+  }
+
+  private _addToFav() {
+    if (!this.product) return;
+
+    cartService.addProduct(this.product);
+    this._setInFav();
+  }
+  private _setInFav() {
+    this.view.btnFav.style.backgroundColor = 'red';
+    this.view.btnFav.disabled = true;
   }
 }
 
