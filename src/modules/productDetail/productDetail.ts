@@ -73,7 +73,7 @@ class ProductDetail extends Component {
     this._setInFav();
   }
   private _setInFav() {
-    this.view.btnFav.style.backgroundColor = 'red';
+    this.view.btnFav.style.filter = 'blur(2px)';
     this.view.btnFav.disabled = true;
   }
 }

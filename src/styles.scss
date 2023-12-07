@@ -95,6 +95,8 @@ img {
     height: 32px;
     margin-top: 4px;
   }
+
+  
 }
 
 .btn {
@@ -122,6 +124,10 @@ img {
 
 .cart {
   position: relative;
+}
+
+.disabled {
+  display: none;
 }
 
 .cartCounter {
