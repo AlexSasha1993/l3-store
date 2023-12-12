@@ -63,12 +63,15 @@
   }
 
   &.is__empty {
-    .checkout__empty {
+    .favourite__empty {
       display: block;
     }
 
-    .checkout__in {
+    .favourite__in {
       display: none;
     }
+  }
+  .title_empty {
+    width: 100%;
   }
 }

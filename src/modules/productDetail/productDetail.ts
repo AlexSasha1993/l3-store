@@ -4,6 +4,7 @@ import { formatPrice } from '../../utils/helpers';
 import { ProductData } from 'types';
 import html from './productDetail.tpl.html';
 import { cartService } from '../../services/cart.service';
+import { favService } from '../../services/favService';
 
 class ProductDetail extends Component {
   more: ProductList;
@@ -36,10 +37,10 @@ class ProductDetail extends Component {
     this.view.btnFav.style.backgroundColor = 'none';
 
     const isInCart = await cartService.isInCart(this.product);
-    const isInFav = await cartService.isInCart(this.product);
+    const isInFav = await favService.isInFav(this.product);
 
     if (isInCart) this._setInCart();
-    if (isInFav) this._setInCart();
+    if (isInFav) this._setInFav();
 
     fetch(`/api/getProductSecretKey?id=${id}`)
       .then((res) => res.json())
@@ -69,7 +70,9 @@ class ProductDetail extends Component {
   private _addToFav() {
     if (!this.product) return;
 
-    cartService.addProduct(this.product);
+    // cartService.addProduct(this.product);
+    // this._setInFav();
+    favService.addFavorite(this.product);
     this._setInFav();
   }
   private _setInFav() {

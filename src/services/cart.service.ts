@@ -37,11 +37,6 @@ class CartService {
     return products.some(({ id }) => id === product.id);
   }
 
-  async isInFav(product: ProductData) {
-    const products = await this.get();
-    return products.some(({ id }) => id === product.id);
-  }
-
   private async _updCounters() {
     const products = await this.get();
     const count = products.length >= 10 ? '9+' : products.length;
