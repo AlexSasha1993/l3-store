@@ -1,6 +1,6 @@
 import { ViewTemplate } from '../../utils/viewTemplate';
 import { View } from '../../utils/view';
-import { formatPrice } from '../../utils/helpers'
+import { formatPrice } from '../../utils/helpers';
 import html from './product.tpl.html';
 import { ProductData } from 'types';
 
@@ -15,6 +15,8 @@ export class Product {
     this.product = product;
     this.params = params;
     this.view = new ViewTemplate(html).cloneView();
+    // this.view.root.addEventListener('click', this.viewingProduct.bind(this));
+    // this.viewingProduct();
   }
 
   attach($root: HTMLElement) {
@@ -29,6 +31,17 @@ export class Product {
     this.view.title.innerText = name;
     this.view.price.innerText = formatPrice(salePriceU);
 
-    if (this.params.isHorizontal) this.view.root.classList.add('is__horizontal')
+    if (this.params.isHorizontal) this.view.root.classList.add('is__horizontal');
   }
+  // viewingProduct = () => {
+  //   const { id, src, salePriceU } = this.product;
+  //   const title = this.product.name;
+  //   const props = { id, src, salePriceU };
+  //   const curRoute = { type: title, payload: props };
+
+  //   fetch('/api/sendEvent', {
+  //     method: 'POST',
+  //     body: JSON.stringify(curRoute)
+  //   });
+  // };
 }

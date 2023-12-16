@@ -22,19 +22,43 @@ class Checkout extends Component {
       productComp.attach(this.view.cart);
     });
 
+    console.log(this.products);
     const totalPrice = this.products.reduce((acc, product) => (acc += product.salePriceU), 0);
     this.view.price.innerText = formatPrice(totalPrice);
 
     this.view.btnOrder.onclick = this._makeOrder.bind(this);
+    fetch('/api/sendEvent', {
+      method: 'POST',
+      body: JSON.stringify(this.products),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   private async _makeOrder() {
     await cartService.clear();
+
     fetch('/api/makeOrder', {
       method: 'POST',
       body: JSON.stringify(this.products)
     });
     window.location.href = '/?isSuccessOrder';
+    // console.log(...this.products);
+
+    // const { id, name, src, salePriceU } = products;
+    // const title = this.products;
+    // const props = this.products;
+    const curRoute = this.products.slice(1, 4);
+
+    console.log(curRoute);
+    // fetch('/api/sendEvent', {
+    //   method: 'POST',
+    //   body: JSON.stringify(curRoute),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // });
   }
 }
 

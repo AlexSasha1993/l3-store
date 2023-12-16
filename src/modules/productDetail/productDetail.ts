@@ -55,6 +55,16 @@ class ProductDetail extends Component {
 
     cartService.addProduct(this.product);
     this._setInCart();
+
+    const { id, src, salePriceU, description } = this.product;
+    const title = this.product.name;
+    const props = { id, src, salePriceU, description };
+    const curRoute = { type: title, payload: props };
+
+    fetch('/api/sendEvent', {
+      method: 'POST',
+      body: JSON.stringify(curRoute)
+    });
   }
 
   private _setInCart() {
