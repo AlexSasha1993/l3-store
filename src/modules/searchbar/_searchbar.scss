@@ -7,19 +7,19 @@
   align-items: center;
   justify-content: space-between;
 
-  .main__icon {
+  &__icon {
     width: 31px;
     height: 31px;
     margin-left: 10px;
     margin-right: 10px;
   }
 
-  .main__icon__two {
+  &__icon__two {
     width: 61px;
     height: 61px;
   }
 
-  .main__input {
+  &__input {
     border: none;
     border-radius: 15px;
     width: 100%;
@@ -36,7 +36,7 @@
 
 .main__text {
   margin-top: 20px;
-  font-family: ALS Hauss VF;
+  font-family: 'ALS Hauss VF';
   font-size: 22px;
   font-style: normal;
   font-weight: 550;
@@ -46,7 +46,7 @@
 
 .text__black {
   color: var(--System-Black, #000);
-  font-family: ALS Hauss VF;
+  font-family: 'ALS Hauss VF';
   font-size: 22px;
   font-style: normal;
   font-weight: 550;
