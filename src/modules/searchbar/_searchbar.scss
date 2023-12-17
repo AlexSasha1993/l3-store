@@ -7,16 +7,11 @@
   align-items: center;
   justify-content: space-between;
 
-  &__icon {
+  .main__svg {
     width: 31px;
     height: 31px;
     margin-left: 10px;
     margin-right: 10px;
-  }
-
-  &__icon__two {
-    width: 61px;
-    height: 61px;
   }
 
   &__input {
