@@ -1,0 +1,54 @@
+.main {
+  width: 900px;
+  height: 60px;
+  border: 3px solid #cb11ab;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .main__icon {
+    width: 31px;
+    height: 31px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .main__icon__two {
+    width: 61px;
+    height: 61px;
+  }
+
+  .main__input {
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    color: var(--System-Smoky-Deep-Dark, #e6e1ef);
+    font-family: 'ALS Hauss VF';
+    font-size: 30px;
+    font-weight: 550;
+    line-height: 32px;
+    letter-spacing: -0.3px;
+    outline: none; /* Убирает рамку при фокусе */
+  }
+}
+
+.main__text {
+  margin-top: 20px;
+  font-family: ALS Hauss VF;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: 24px; /* 109.091% */
+  color: #da15b8;
+}
+
+.text__black {
+  color: var(--System-Black, #000);
+  font-family: ALS Hauss VF;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: 24px; /* 109.091% */
+}
